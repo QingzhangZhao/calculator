@@ -65,7 +65,6 @@ Data calculate()
 	   current=pop_2();
        if (current.flag==1)
 	   {
-		   printf("get :%s\n",current.numberator);
 	       push_1(current);
 	   }
        else
@@ -79,14 +78,12 @@ Data calculate()
 			   case('+'):
 				   {
 					   result=Add(left,right);
-					   printf("%s\n",result.numberator);
 					   push_1(result);
 				        break;
 				   }
 			   case('-'):
 				   {
 				         result=Minus(left,right);
-						 printf("%s\n",result.numberator);
 						 push_1(result);
 				  
 						 break;
@@ -94,14 +91,12 @@ Data calculate()
 			   case('*'):
 				   {
 					     result=Multitply(left,right);
-						 printf("??%s\n",result.numberator);
 						 push_1(result);
 				         break;
 				   }
 			   case('/'):
 				   {
                          result=Divide(left,right);
-						 printf("%s/%s\n",result.numberator,result.denominator);
 						 push_1(result);
 				         break;
 				   }
@@ -109,8 +104,12 @@ Data calculate()
 	   }
    } 
 }
+
 int main()
 {
+	while(1){
 	convert();
 	calculate();
+	Data result=pop_1();
+	printf("result=%s/%s\n",result.numberator,result.denominator);}
 }
