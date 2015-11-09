@@ -26,6 +26,7 @@ int compare(char c1,char c2);
 //	}
 //}
 
+/*比较运算级优先级*/
 int compare(char c1,char c2)
 {
 	switch(c1)
@@ -146,6 +147,7 @@ void convert()
 			}
 		}
 	}
+	//最后一个数入栈
 	if(strlen(uinit)!=0)
 	{
 		uinit[size]='\0';	

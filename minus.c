@@ -7,7 +7,7 @@ void MinusBigNum( char* s1, char* s2, char* result )
 
     int len1 = strlen( s1 );  //被减数的长度
     int len2 = strlen( s2 );  //减数的长度
-    int acc = 0, temp, i;        /*acc为借位标记*/
+    int acc = 0, temp, i;     //acc为借位标记
     char * tmp;
     int flag= 0;
 	int _bool=0;
@@ -31,7 +31,7 @@ void MinusBigNum( char* s1, char* s2, char* result )
     reverse( s2 );
     for( i = 0; i < len1 && i < len2; i++ )
     {
-        temp = s1[i]  - s2[i] -acc ;        /*计算每位的实际和*/
+        temp = s1[i]  - s2[i] -acc ;        
 		if (temp<0)
 		{
 			acc=1;  //借位
@@ -39,13 +39,13 @@ void MinusBigNum( char* s1, char* s2, char* result )
 		}
 			else
 			acc = 0;
-            result[i] = temp +'0';        /*通过求余数来确定每位的最终值*/
-    }
-    if( i < len1 )        /*两个加数位数不同*/
+            result[i] = temp +'0';        
+	}
+    if( i < len1 )       
     {
         for( ; i < len1; i++ )
         {
-            temp = s1[i] - acc-'0';        /*依旧要考虑进位，比如9999 + 1的情况*/
+            temp = s1[i] - acc-'0';       
 		    if (temp<0)
 		    {
 			    acc=1;  //借位
@@ -53,23 +53,11 @@ void MinusBigNum( char* s1, char* s2, char* result )
 		    }
             else
                 acc = 0;
-                result[i] = temp+'0' ;        /*通过求余数来确定每位的最终值*/
+                result[i] = temp+'0' ;       
         }
     }
-    // if( i < len2 )
-    //{
-    //   for( ; i < len2; i++ )
-    //  {
-    //     temp = s2[i] -'0' - acc;
-    //        result[i] = abs(temp) + '0';
-    //        if( temp < 0 )
-    //            acc = 1;
-    //        else
-    //            acc = 0;
-    //    }
-    // }
 
-    if( acc == 1 )        /*考虑如:123 + 911 = 1034的情况，如果不增加这个条件会得到结果为034，进位被舍弃*/
+    if( acc == 1 )        
 	{
 		if(len1==len2)
 	    {
@@ -103,6 +91,3 @@ void MinusBigNum( char* s1, char* s2, char* result )
 		result[len-i]='\0';
 	reverse(result);
 }
-/*测试一下*/
-
-
