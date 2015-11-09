@@ -14,8 +14,8 @@ Data  pop_2();
 void push_2(Data);
 void destroy_stack_2();
 
-static Stack * TopNode_1=NULL;
-static Stack * TopNode_2=NULL;
+static Stack * TopNode_1;
+static Stack * TopNode_2;
 
 void push_1(Data value)
 {
@@ -68,7 +68,6 @@ void push_2(Data value)
 Data  pop_2()
 {
 	Stack * first_node;
-
     assert (!is_empty_2());
 	first_node = TopNode_2;
 	Data value = first_node->value;

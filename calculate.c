@@ -64,12 +64,13 @@ Data calculate()
    {
 
 	   current=pop_2();
-       if (current.flag==1)
-	       push_1(current);
+       if (current.flag==1){
+		   printf("get :%s\n",current.numberator);
+	       push_1(current);}
        else
        {
-	       left=pop_1();
-           right=pop_1();
+	       right=pop_1();
+           left=pop_1();
 
 	       switch(current.op)
 		   {	
