@@ -69,14 +69,5 @@ void AddBigNum( char* s1, char* s2, char* result )
     reverse( result );
 }
 
-//int main()
-//{
-//    char s1[] = "111111111111111111111111";
-//    char s2[] = "111111111111111111111111";
-//	char * result=malloc(sizeof(char)*(strlen(s1)+strlen(s2)));	
- //   AddBigNum( s1, s2,result);
-  //  printf( "%s\n", result);
-//	free(result);
-//}
-//
+
 

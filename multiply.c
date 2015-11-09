@@ -1,9 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-char * bigmuilty(char*muiltied,char *muilty)//muiltied 为被乘数，len1为其长。muilty为乘数，len2为其长
+char * bigmuilty(char*muiltied,char *muilty)//muiltied 为被乘数
 {
-   printf("ok!");
    int len;
    int i=0;
    int j=0;
@@ -15,19 +14,11 @@ char * bigmuilty(char*muiltied,char *muilty)//muiltied 为被乘数，len1为其
    int len2 = strlen(muilty);
    len=len1+len2; //两个数相乘他们的最大长度为乘数与被乘数的长度和
    result=(char*)calloc(len,1);//动态分配内存
-   for(i=0;i<len1;i++)
-   {
-       muiltied[i]=muiltied[i]-'0';
-   }
-   for(i=0;i<len2;i++)
-   {
-      muilty[i]=muilty[i]-'0';
-   }
    for(i=0;i<len2;i++)//用乘数的每一位去乘以被乘数
    {
      for(j=0;j<len1;j++)
      {
-        tmp_result=muilty[len2-i-1]*muiltied[len1-j-1];//得到零时结果
+        tmp_result=muilty[len2-i-1]*muiltied[len1-j-1]-'0'*muiltied[len1-j-1]-'0'*muilty[len2-i-1]-'0'*'0';//得到零时结果
         result[j+i]+=tmp_result;//如果以0为起始标号，被乘数和乘数下标分别从右往左依次增加，则结果存放的位置为j+i
      }
      for(k=0;k<=j+i-1;k++)//整理结果，使每位的值在0-9之间
@@ -42,31 +33,22 @@ char * bigmuilty(char*muiltied,char *muilty)//muiltied 为被乘数，len1为其
      }
    }
    
+   char *  result2=(char*)calloc(len,1);//动态分配内存
+       int size =0;
+   i=len-2;
+   if(result[len-1]>0)
+   {
+	 result2[size++]=result[len-1]+'0';
+   }
+    while(i>=0)
+   {
+	  result2[size++]=result[i]+'0';
+      i--;
    
-//   i=len-2;
-//   printf("\nresult : ");
-//   if(result[len-1]>0)
-//   {
-//     printf("%c",result[len-1]+'0');
-//   }
-//    while(i>=0)
-//   {
-//      printf("%c",result[i]+'0');
-//      i--;
-//   }
+   }
+   free(result);
+   result2[size]='\0';
+   
+   return result2;
+}
 
-   return result;
-}
-int main()
-{
-   int i=0;
-   int num='0';
-   char muiltied[BUFSIZ];//被乘数存放位置
-   char muilty[BUFSIZ];
-   
-   char s1[]="222";
-   char s2[]="222";
-   bigmuilty(s1,s2);
-  // free(result);
-   return 0;
-}

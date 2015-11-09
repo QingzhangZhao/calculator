@@ -1,20 +1,6 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
-void reverse( char *s )        /*将字符串逆置*/
-{
-    int length;
-    int i = 0;
-    char temp;
-    length = strlen( s );
-    while( i < length - i - 1 )
-    {
-        temp = s[i];
-        s[i] = s[length - i - 1];
-        s[length - i - 1] = temp;
-        i++;
-    }
-}
 
 void MinusBigNum( char* s1, char* s2, char* result )
 {
@@ -118,14 +104,5 @@ void MinusBigNum( char* s1, char* s2, char* result )
 	reverse(result);
 }
 /*测试一下*/
-int main()
-{
-    char s1[] = "1000000000000000000000000000000000000000000000000000000000";
-    char s2[] = "1";
-	char * result=malloc(sizeof(char)*(strlen(s1)+strlen(s2)));	
-    MinusBigNum( s1, s2,result);
-    printf( "%s\n", result);
-	free(result);
-}
 
 
