@@ -105,7 +105,7 @@ Data calculate()
    } 
 }
 
-int main()
+void run()
 {
 	while(1){
 	convert();
