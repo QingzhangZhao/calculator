@@ -62,13 +62,15 @@ Data calculate()
 	}
 	while(!is_empty_2())
    {
-
 	   current=pop_2();
-       if (current.flag==1){
+       if (current.flag==1)
+	   {
 		   printf("get :%s\n",current.numberator);
-	       push_1(current);}
+	       push_1(current);
+	   }
        else
        {
+
 	       right=pop_1();
            left=pop_1();
 
@@ -92,7 +94,7 @@ Data calculate()
 			   case('*'):
 				   {
 					     result=Multitply(left,right);
-						 printf("%s\n",result.numberator);
+						 printf("??%s\n",result.numberator);
 						 push_1(result);
 				         break;
 				   }
